@@ -4,6 +4,11 @@ export default function PokemonList() {
   const [pokemonList, setPokemonList] = useState([]);
   const pokemonLimit = 12;
 
+  const getPokemonImageUrl = (id) => {
+    const paddedId = id.toString().padStart(3, "0");
+    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId}.png`;
+  };
+
   useEffect(() => {
     const fetchPokemon = async () => {
       const url = `https://pokeapi.co/api/v2/pokemon-species?limit=${pokemonLimit}`;
@@ -41,5 +46,14 @@ export default function PokemonList() {
     fetchPokemon();
   }, [pokemonLimit]);
 
-  return <div></div>;
+  return (
+    <div>
+      {pokemonList.map((pokemon) => (
+        <div key={pokemon.id}>
+          {pokemon.name}
+          <img src={getPokemonImageUrl(pokemon.id)} alt={pokemon.name} />
+        </div>
+      ))}
+    </div>
+  );
 }

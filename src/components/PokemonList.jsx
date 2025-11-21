@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../PokemonList.css";
 
 export default function PokemonList() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -7,6 +8,27 @@ export default function PokemonList() {
   const getPokemonImageUrl = (id) => {
     const paddedId = id.toString().padStart(3, "0");
     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId}.png`;
+  };
+
+  //Fisher Yates Algorithm
+  const shuffle = (array) => {
+    const arrayToShuffle = [...array];
+    let i = arrayToShuffle.length;
+
+    while (--i > 0) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arrayToShuffle[i], arrayToShuffle[j]] = [
+        arrayToShuffle[j],
+        arrayToShuffle[i],
+      ];
+    }
+    console.log(arrayToShuffle);
+    return arrayToShuffle;
+  };
+
+  const handleClick = (e) => {
+    //pass the id to the parent!
+    setPokemonList((pokemonList) => shuffle(pokemonList));
   };
 
   useEffect(() => {
@@ -49,7 +71,7 @@ export default function PokemonList() {
   return (
     <div>
       {pokemonList.map((pokemon) => (
-        <div key={pokemon.id}>
+        <div key={pokemon.id} onClick={handleClick}>
           {pokemon.name}
           <img src={getPokemonImageUrl(pokemon.id)} alt={pokemon.name} />
         </div>

@@ -26,7 +26,7 @@ export default function PokemonList() {
     return arrayToShuffle;
   };
 
-  const handleClick = (e) => {
+  const handleClick = ({ target }) => {
     //pass the id to the parent!
     setPokemonList((pokemonList) => shuffle(pokemonList));
   };
@@ -70,12 +70,23 @@ export default function PokemonList() {
 
   return (
     <div>
-      {pokemonList.map((pokemon) => (
-        <div key={pokemon.id} onClick={handleClick}>
-          {pokemon.name}
-          <img src={getPokemonImageUrl(pokemon.id)} alt={pokemon.name} />
-        </div>
-      ))}
+      <div className="pokemon-container">
+        {pokemonList.map((pokemon) => (
+          <div
+            key={pokemon.id}
+            id={pokemon.id}
+            className="pokemon"
+            onClick={handleClick}
+          >
+            <p id={pokemon.id}>{pokemon.name}</p>
+            <img
+              src={getPokemonImageUrl(pokemon.id)}
+              id={pokemon.id}
+              alt={pokemon.name}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import "../PokemonList.css";
 
-export default function PokemonList() {
+export default function PokemonList({
+  pokemonLimit,
+  onPokemonSelect,
+  currentScore,
+  highScore,
+}) {
   const [pokemonList, setPokemonList] = useState([]);
-  const pokemonLimit = 12;
 
   const getPokemonImageUrl = (id) => {
     const paddedId = id.toString().padStart(3, "0");
@@ -22,13 +26,13 @@ export default function PokemonList() {
         arrayToShuffle[i],
       ];
     }
-    console.log(arrayToShuffle);
+    // console.log(arrayToShuffle);
     return arrayToShuffle;
   };
 
   const handleClick = ({ target }) => {
-    //pass the id to the parent!
     setPokemonList((pokemonList) => shuffle(pokemonList));
+    onPokemonSelect(target.id);
   };
 
   useEffect(() => {
@@ -70,6 +74,14 @@ export default function PokemonList() {
 
   return (
     <div>
+      <div className="scoreboard">
+        <strong>
+          <div className="score">Score: {currentScore}</div>
+        </strong>
+        <strong>
+          <div className="score">High Score: {highScore}</div>
+        </strong>
+      </div>
       <div className="pokemon-container">
         {pokemonList.map((pokemon) => (
           <div

@@ -78,10 +78,10 @@ export default function PokemonList({
         <h1>Pokemon Memory Game</h1>
         <div className="scoreboard">
           <strong>
-            <div className="score">Score: {currentScore}</div>
+            <p className="current-score">Score: {currentScore}</p>
           </strong>
           <strong>
-            <div className="score">High Score: {highScore}</div>
+            <p className="high-score">High Score: {highScore}</p>
           </strong>
         </div>
       </div>

@@ -1,0 +1,42 @@
+* {
+  /* border: 1px solid red; */
+  padding: 0;
+  margin: 0;
+}
+
+.game-container {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+}
+
+.title-and-scoreboard {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.pokemon-container {
+  width: 70vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.pokemon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border: 1px solid red;
+}
+
+.pokemon-name {
+  text-align: center;
+  width: 100%;
+  border: 1px solid red;
+}
+
+img {
+  width: 10vw;
+}

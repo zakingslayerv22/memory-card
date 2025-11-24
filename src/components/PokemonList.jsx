@@ -73,15 +73,22 @@ export default function PokemonList({
   }, [pokemonLimit]);
 
   return (
-    <div>
-      <div className="scoreboard">
-        <strong>
-          <div className="score">Score: {currentScore}</div>
-        </strong>
-        <strong>
-          <div className="score">High Score: {highScore}</div>
-        </strong>
+    <div className="game-container">
+      <div className="title-and-scoreboard">
+        <h1>Pokemon Memory Game</h1>
+        <div className="scoreboard">
+          <strong>
+            <div className="score">Score: {currentScore}</div>
+          </strong>
+          <strong>
+            <div className="score">High Score: {highScore}</div>
+          </strong>
+        </div>
       </div>
+      <p className="game-description">
+        Get points by clicking on these species. Don't click an image more than
+        once!
+      </p>
       <div className="pokemon-container">
         {pokemonList.map((pokemon) => (
           <div
@@ -90,12 +97,14 @@ export default function PokemonList({
             className="pokemon"
             onClick={handleClick}
           >
-            <p id={pokemon.id}>{pokemon.name}</p>
             <img
               src={getPokemonImageUrl(pokemon.id)}
               id={pokemon.id}
               alt={pokemon.name}
             />
+            <p id={pokemon.id} className="pokemon-name">
+              {pokemon.name}
+            </p>
           </div>
         ))}
       </div>

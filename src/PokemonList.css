@@ -7,8 +7,9 @@
 .game-container {
   display: grid;
   place-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1.5rem 3rem 3rem;
+  min-height: 100vh;
   background-color: #1d1d1d;
   color: white;
 }
@@ -41,17 +42,26 @@
   display: grid;
   place-items: center;
   width: 100%;
-  border: 1px solid red;
+  border-radius: 10px;
+  box-shadow: 2px 1px 8px 0px rgba(235, 230, 230, 0.75);
+  -webkit-box-shadow: 1px 1px 8px 0px rgba(235, 230, 230, 0.75);
+  -moz-box-shadow: 2px 1px 8px 0px rgba(235, 230, 230, 0.75);
+  transition: transform 0.6s ease-in-out;
+}
+
+.pokemon:hover {
+  transform: scale(1.04);
+  box-shadow: 1px 1px 8px 0px rgba(4, 227, 243, 0.75);
+  -webkit-box-shadow: 1px 1px 8px 0px rgba(4, 227, 243, 0.75);
+  -moz-box-shadow: 1px 1px 8px 0px rgba(4, 227, 243, 0.75);
 }
 
 .pokemon-name {
   text-align: center;
   width: 100%;
-  /* border: 1px solid red; */
   font-size: 1.2rem;
 }
 
 img {
   width: 10vw;
-  /* border: 1px solid red; */
 }

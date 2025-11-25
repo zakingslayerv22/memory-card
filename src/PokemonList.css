@@ -94,6 +94,10 @@ img {
     font-size: 1rem;
   }
 
+  .game-description {
+    text-align: center;
+  }
+
   .pokemon-name {
     font-size: 1.1rem;
   }

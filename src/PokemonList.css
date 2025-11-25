@@ -70,3 +70,35 @@
 img {
   width: 10vw;
 }
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  .game-description {
+    padding: 1rem;
+  }
+
+  img {
+    width: 15vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .title-and-scoreboard {
+    gap: 1rem;
+  }
+
+  .title-and-scoreboard > h1 {
+    font-size: 1.1rem;
+  }
+
+  .scoreboard {
+    font-size: 1rem;
+  }
+
+  .pokemon-name {
+    font-size: 1.1rem;
+  }
+
+  img {
+    width: 45vw;
+  }
+}
